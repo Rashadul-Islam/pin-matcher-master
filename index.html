@@ -45,7 +45,7 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button id="submit-button" onclick="tryLeft()" type="submit" class="submit-btn">Submit</button>
+                                <button id="submit-button" onclick="verify()" type="submit" class="submit-btn">Submit</button>
                                 <p id="try" class="action-left"> <span id="try-id">3</span> try left</p>
                                 <p id="alert">Account is disable due to too much attempt....!</p>
                             </div>
@@ -100,6 +100,7 @@
                     var pin=1;
                 }
                 else {
+                    tryLeft();
                     showMessage('unsuccess-message', 'success-message');
                 }
             }
@@ -114,8 +115,7 @@
             function tryLeft(){
                 const trailCatch=document.getElementById("try-id").innerText;
                 const tryValue=parseInt(trailCatch);
-                if(tryValue>0){             
-                    verify();
+                if(tryValue>1){
                     document.getElementById("try-id").innerText=tryValue-1;
                 }
                 else{
